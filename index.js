@@ -11,6 +11,7 @@ const express = require("express");
 
 //Clonando a varável com poderes de express para manipular
 const app = express();
+const { create } = require("express-handlebars");
 
 //ROTAS:
 app.get("/", function (req, res) {
@@ -25,9 +26,18 @@ app.get("/login/:email/:senha", function (req, res) {
     res.send(req.params.email);
   });
 
+  app.get("/cad", function (req, res) {
+    //res.send("Rota de cadastro de postagem");
+    res.render("form"); //renderizando a pagina form.handlebars
+  });
+
 app.get("/html", function (req,res) {
   res.sendFile(__dirname +'/html/index.html')
 });
+
+const abs = create({ defaultLayout: "main" }); //definindo layout padrão
+app.engine("handlebars", abs.engine); //denfinindo o motor e o recheio 
+app.set("view engine", "handlebars");
 
 //SEMPRE MANTENHA NO FINAL DO CÒDIGO JJ
 app.listen(3031, function () {
