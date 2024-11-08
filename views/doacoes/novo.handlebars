@@ -1,0 +1,33 @@
+<h1>Criar Nova Doação</h1>
+
+<form action="/doacao/novo" method="POST">
+    <label for="id_clie">Cliente:</label>
+    <select name="id_clie" id="id_clie">
+        {{#each clientes}}
+            <option value="{{this.id_clie}}">{{this.nm_clie}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="id_prod">Produto:</label>
+    <select name="id_prod" id="id_prod">
+        {{#each produtos}}
+            <option value="{{this.id_prod}}">{{this.nome_prod}}</option>
+        {{/each}}
+    </select>
+    <br>
+
+    <label for="data_doa">Data da Doação:</label>
+    <input type="date" name="data_doa" required>
+    <br>
+
+    <label for="qndt_doa">Quantidade:</label>
+    <input type="number" name="qndt_doa" required>
+    <br>
+
+    <label for="reserva_doa">Reserva:</label>
+    <input type="checkbox" name="reserva_doa">
+    <br>
+
+    <button type="submit">Criar Doação</button>
+</form>

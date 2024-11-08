@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Produto</title>
+</head>
+<body>
+    <h1>Editar Produto</h1>
+    <form action="/update/produto/{{produto.id_prod}}" method="POST">
+        <label for="nome_prod">Nome do Produto:</label>
+        <input type="text" id="nome_prod" name="nome_prod" value="{{produto.nome_prod}}" required>
+        <br>
+
+        <label for="estado_prod">Estado do Produto:</label>
+        <input type="text" id="estado_prod" name="estado_prod" value="{{produto.estado_prod}}" required>
+        <br>
+
+        <label for="descricao_prod">Descrição do Produto:</label>
+        <textarea id="descricao_prod" name="descricao_prod" required>{{produto.descricao_prod}}</textarea>
+        <br>
+
+        <button type="submit">Salvar Alterações</button>
+    </form>
+</body>
+</html>

@@ -1,0 +1,17 @@
+<h1>Editar Doação</h1>
+<form action="/update/doacao/{{doacao.id_doacao}}" method="POST">
+    <label for="qndt_doa">Quantidade:</label>
+    <input type="text" name="qndt_doa" value="{{doacao.qndt_doa}}" required>
+    <br>
+
+    <label for="reserva_doa">Reserva:</label>
+    <select name="reserva_doa">
+        <option value="true" {{#if doacao.reserva_doa}}selected{{/if}}>Reservado</option>
+        <option value="false" {{#unless doacao.reserva_doa}}selected{{/unless}}>Não Reservado</option>
+    </select>
+    <br>
+
+    <button type="submit">Atualizar Doação</button>
+</form>
+
+<a href="/doacao/{{doacao.cliente.id_clie}}">Voltar para a lista de doações</a>

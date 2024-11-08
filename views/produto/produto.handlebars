@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalhes do Produto</title>
+</head>
+<body>
+    <h1>Detalhes do Produto</h1>
+    <p><strong>Nome do Produto:</strong> {{produto.nome_prod}}</p>
+    <p><strong>Estado do Produto:</strong> {{produto.estado_prod}}</p>
+    <p><strong>Descrição do Produto:</strong> {{produto.descricao_prod}}</p>
+
+    <a href="/update/produto/{{produto.id_prod}}">Editar Produto</a>
+    <br>
+    <form action="/delete/produto/{{produto.id_prod}}" method="POST">
+        <button type="submit">Deletar Produto</button>
+    </form>
+</body>
+</html>

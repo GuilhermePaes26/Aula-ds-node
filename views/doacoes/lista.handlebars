@@ -1,0 +1,29 @@
+<h1>Lista de Doações</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Produto</th>
+            <th>Data da Doação</th>
+            <th>Quantidade</th>
+            <th>Reserva</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each doacoes}}
+        <tr>
+            <td>{{produto.nome_prod}}</td>
+            <td>{{data_doa}}</td>
+            <td>{{qndt_doa}}</td>
+            <td>{{#if reserva_doa}}Reservado{{else}}Não Reservado{{/if}}</td>
+            <td>
+                <a href="/doacao/detalhes/{{id_doacao}}">Detalhes</a> |
+                <a href="/doacao/editar/{{id_doacao}}">Editar</a> |
+                <form action="/delete/doacao/{{id_doacao}}" method="POST" style="display:inline;">
+                    <button type="submit">Deletar</button>
+                </form>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Cliente</title>
+</head>
+<body>
+    <h1>Editar Cliente</h1>
+    <form action="/update/cliente/{{cliente.id_clie}}" method="POST">
+        <label for="nm_clie">Nome:</label>
+        <input type="text" id="nm_clie" name="nm_clie" value="{{cliente.nm_clie}}" required>
+        <br>
+
+        <label for="cpf_clie">CPF:</label>
+        <input type="text" id="cpf_clie" name="cpf_clie" value="{{cliente.cpf_clie}}" required>
+        <br>
+
+        <label for="senha_clie">Senha:</label>
+        <input type="password" id="senha_clie" name="senha_clie" value="{{cliente.senha_clie}}" required>
+        <br>
+
+        <button type="submit">Atualizar</button>
+    </form>
+</body>
+</html>

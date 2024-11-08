@@ -1,0 +1,18 @@
+<h1>Detalhes da Doação</h1>
+
+<p><strong>Cliente:</strong> {{doacao.cliente.nm_clie}} (CPF: {{doacao.cliente.cpf_clie}})</p>
+<p><strong>Produto:</strong> {{doacao.produto.nome_prod}}</p>
+<p><strong>Estado:</strong> {{doacao.produto.estado_prod}}</p>
+<p><strong>Descrição:</strong> {{doacao.produto.descricao_prod}}</p>
+
+<p><strong>Data da Doação:</strong> {{doacao.data_doa}}</p>
+<p><strong>Quantidade:</strong> {{doacao.qndt_doa}}</p>
+<p><strong>Reserva:</strong> {{#if doacao.reserva_doa}}Reservado{{else}}Não Reservado{{/if}}</p>
+
+<form action="/alterar/reserva/{{doacao.id_doacao}}" method="POST">
+    <button type="submit">
+        {{#if doacao.reserva_doa}}Cancelar Reserva{{else}}Reservar{{/if}}
+    </button>
+</form>
+
+<a href="/doacao/{{doacao.cliente.id_clie}}">Voltar para a lista de doações</a>
