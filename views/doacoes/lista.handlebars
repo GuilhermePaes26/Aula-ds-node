@@ -1,29 +1,60 @@
-<h1>Lista de Doações</h1>
-<table>
-    <thead>
-        <tr>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lista de Doações</title>
+
+    <!-- Importação do Bootstrap 5.3.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Lista de Doações</h1>
+
+      <table class="table table-striped table-bordered">
+        <thead class="table-dark">
+          <tr>
             <th>Produto</th>
             <th>Data da Doação</th>
             <th>Quantidade</th>
             <th>Reserva</th>
             <th>Ações</th>
-        </tr>
-    </thead>
-    <tbody>
-        {{#each doacoes}}
-        <tr>
-            <td>{{produto.nome_prod}}</td>
-            <td>{{data_doa}}</td>
-            <td>{{qndt_doa}}</td>
-            <td>{{#if reserva_doa}}Reservado{{else}}Não Reservado{{/if}}</td>
-            <td>
-                <a href="/doacao/detalhes/{{id_doacao}}">Detalhes</a> |
-                <a href="/doacao/editar/{{id_doacao}}">Editar</a> |
-                <form action="/delete/doacao/{{id_doacao}}" method="POST" style="display:inline;">
-                    <button type="submit">Deletar</button>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each doacoes}}
+            <tr>
+              <td>{{produto.nome_prod}}</td>
+              <td>{{data_doa}}</td>
+              <td>{{qndt_doa}}</td>
+              <td>{{#if reserva_doa}}Reservado{{else}}Não Reservado{{/if}}</td>
+              <td>
+                <a href="/doacao/detalhes/{{id_doacao}}" class="btn btn-info btn-sm">Detalhes</a>
+                <a href="/doacao/editar/{{id_doacao}}" class="btn btn-warning btn-sm">Editar</a>
+                <form action="/delete/doacao/{{id_doacao}}" method="POST" class="d-inline">
+                  <button type="submit" class="btn btn-danger btn-sm">Deletar</button>
                 </form>
-            </td>
-        </tr>
-        {{/each}}
-    </tbody>
-</table>
+              </td>
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+
+      <div class="text-center mt-4">
+        <a href="/" class="btn btn-secondary">Voltar para home</a>
+      </div>
+    </div>
+
+    <!-- Importação do Bootstrap 5.3.3 JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

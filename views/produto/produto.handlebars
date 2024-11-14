@@ -1,20 +1,59 @@
-<!DOCTYPE html>
 <html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Detalhes do Produto</title>
-</head>
-<body>
-    <h1>Detalhes do Produto</h1>
-    <p><strong>Nome do Produto:</strong> {{produto.nome_prod}}</p>
-    <p><strong>Estado do Produto:</strong> {{produto.estado_prod}}</p>
-    <p><strong>Descrição do Produto:</strong> {{produto.descricao_prod}}</p>
 
-    <a href="/update/produto/{{produto.id_prod}}">Editar Produto</a>
-    <br>
-    <form action="/delete/produto/{{produto.id_prod}}" method="POST">
-        <button type="submit">Deletar Produto</button>
-    </form>
-</body>
+    <!-- Importação do Bootstrap 5.3.3 CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="bg-light">
+    <div class="container mt-5">
+      <div class="row justify-content-center">
+        <div class="col-md-8">
+          <div class="card shadow-sm">
+            <div class="card-body">
+              <h1 class="text-center mb-4">Detalhes do Produto</h1>
+              <p><strong>Nome do Produto:</strong> {{produto.nome_prod}}</p>
+              <p><strong>Estado do Produto:</strong> {{produto.estado_prod}}</p>
+              <p><strong>Descrição do Produto:</strong> {{produto.descricao_prod}}</p>
+
+              <!-- Exibindo a Imagem Centralizada -->
+              <p><strong>Imagem do Produto:</strong></p>
+              <div class="d-flex justify-content-center">
+                {{#if produto.imagem}}
+                  <img src="{{produto.imagemUrl}}" alt="Imagem do Produto" class="img-fluid mb-3" style="max-width: 300px;" />
+                {{else}}
+                  <p>Imagem não disponível.</p>
+                {{/if}}
+              </div>
+
+              <!-- Botões de Ação -->
+              <div class="d-flex justify-content-between mt-4">
+                <a href="/produto/editar/{{produto.id_prod}}" class="btn btn-warning">Editar Produto</a>
+                <form action="/delete/produto/{{produto.id_prod}}" method="POST">
+                  <button type="submit" class="btn btn-danger">Deletar Produto</button>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Importação do Bootstrap 5.3.3 JavaScript Bundle -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <div class="text-center mt-4">
+      <a href="/" class="btn btn-secondary">Voltar para home</a>
+    </div>
+  </body>
 </html>
