@@ -116,7 +116,7 @@ app.post("/cadastro", async function (req, res) {
       cpf_clie,
       senha_clie,
     });
-    res.sendFile(__dirname + "/html/index.html");
+    res.render("index");
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -147,7 +147,7 @@ app.get("/cliente/find/:cpf_clie", async (req, res) => {
     if (!cliente) {
       return res.status(404).send("Cliente não encontrado.");
     }
-    res.json(cliente);
+    res.render("index");
   } catch (error) {
     res.status(500).send(error.message);
   }
@@ -184,7 +184,7 @@ app.post("/update/cliente/:id_clie", async (req, res) => {
     cliente.senha_clie = senha_clie || cliente.senha_clie;
 
     await cliente.save();
-    res.json(cliente);
+    res.render("index");
   } catch (error) {
     res.status(500).send(error.message);
   }
